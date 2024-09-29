@@ -1,0 +1,47 @@
+Question Statement :
+1. Mandatory : Elaborate what your internship or academic projects were?
+a. What did the system do?
+b. What other systems have you seen in the wild like that?
+c. How do you approach the development problem?
+d. What were interesting aspects where you copied code from Stack Overflow?
+e. What did you learn from some very specific copy paste? Mention explicitly some
+of them.
+
+
+_________________________________________________________________________________________________________________________________________
+
+1. Rate Limiter:
+a. What did the system do?
+   This project involved building a rate-limiting service in a microservices architecture to handle a high volume of concurrent requests.
+   The service used Redis to manage user request limits and prevent system overload.
+b. Similar Systems:
+   Rate limiters are crucial for platforms like Twitter or GitHub, which manage millions of API requests per second.
+   These systems ensure fair usage and prevent server overload by limiting the number of requests a user can make.
+c. Development Approach:
+   I followed a modular design where I first implemented Redis as a cache layer to store the request counters.
+   Then, I integrated it with the microservices using Spring Boot. A distributed token bucket algorithm was applied to handle the rate-limiting mechanism.
+d. Stack Overflow Learnings:
+   I took inspiration from Stack Overflow posts to optimize Redis interactions in Java. 
+   Specifically, I learned how to configure Redis pipelines to batch commands, significantly improving performance under high loads.
+e. What I Learned from Specific Copy-Paste:
+   I copied an example of a Redis token bucket algorithm implementation.
+   This taught me how Redis can efficiently handle real-time traffic and gave me a deeper understanding of how rate-limiting strategies can be implemented in production-level systems.
+
+
+_________________________________________________________________________________________________________________________________________   
+
+1. Query Seva:
+a. What did the system do?
+   Query Seva is a smart chat assistant built with Generative AI to integrate existing APIs, automate business workflows, and intelligently resolve queries.
+   It helped businesses streamline responses by automating repetitive tasks and answering frequently asked questions via a conversational interface.
+b. Similar Systems:
+   I've seen similar systems in platforms like Dialogflow by Google, IBM Watson Assistant, or Microsoft Bot Framework. 
+   These are designed to interact with APIs and handle user queries using AI, enhancing the automation of business processes.
+c. Development Approach:
+   My approach began by understanding the nature of the queries that needed to be handled, followed by identifying the APIs required for integration. 
+   I designed the back-end to manage conversational flows and ensured seamless front-end interaction using React.js.
+d. Stack Overflow Learnings:
+   I relied on Stack Overflow for tips on API integration best practices in Python, specifically how to manage API keys securely while interacting with third-party services.
+e. What I Learned from Specific Copy-Paste:
+   I copied code snippets for debouncing user inputs from Stack Overflow to ensure that rapid user typing didn’t lead to unnecessary API calls, optimizing the front-end performance. 
+   From this, I learned about the importance of handling user interactions efficiently.

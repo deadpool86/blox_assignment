@@ -1,0 +1,45 @@
+Question Statement :
+There is one database. Let’s say it is hosted locally and one of the team members migrates it
+to AWS or GCP. How can one confirm that the copied data is the same as the original data ?
+What would be the check points ?
+Imagine that data from table is of the form : List<Map<String,String>>
+
+
+_________________________________________________________________________________________________________________________________________
+
+When migrating a database from a local environment to AWS or GCP, it's crucial to ensure that the data in the destination
+matches the original data in terms of integrity and completeness. To confirm that the copied data is the same as the original data,
+we can use the following check points:
+
+1. Row Count Comparison:
+   Verify that the number of rows in each table in the local database is the same as in the cloud database.
+   Run a simple SQL query like SELECT COUNT(*) FROM table_name; on both databases and compare the results.
+   SELECT COUNT(*) FROM employees;
+
+2. Checksum or Hash Verification:
+   Compute a checksum or hash of each row (or batch of rows) in the local and cloud databases, then compare the values. 
+   This ensures that the content of the data matches byte-for-byte.
+   You can generate a hash for each row or a combination of rows and compare those across the two databases.
+   SELECT MD5(CONCAT_WS(',', column1, column2, column3)) AS row_hash FROM table_name;
+
+3. Data Sampling and Comparison:
+   Randomly sample some data from both databases and compare row contents to ensure they match.
+   Pick random rows based on primary key or some column and compare them across databases.
+   SELECT * FROM employees WHERE employee_id = 123;
+
+4. Primary Key or Unique Constraints Verification:
+   Ensure that all primary keys and unique constraints are preserved during migration.
+   Validate that the same unique keys exist and that the integrity of the key relationships is maintained in the destination database.
+
+5. Column-level Data Integrity:
+   Verify that for each table, the columns in the cloud database are populated correctly with the expected data types and no truncation or format issues occurred.
+   Run DESCRIBE table_name; in both databases and compare the schemas, as well as any column constraints (e.g., not null, default values).
+
+6. Null and Default Value Checks:
+   Ensure that all null values and default values are the same after migration.
+   Run queries to identify any null or default values and compare across databases.
+   SELECT COUNT(*) FROM employees WHERE column_name IS NULL;
+
+7. Row-by-Row Content Comparison:
+   Compare the data for each row in each table, field by field, to ensure no discrepancies.
+   Write a script that pulls data row by row from both the source and target databases, converts them into a comparable format (e.g., List<Map<String,String>>), and checks for differences.   
