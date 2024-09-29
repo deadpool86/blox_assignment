@@ -77,13 +77,13 @@ public class JsonParserUtil {
     public static void main(String[] args) {
         try {
             String jsonString = "{\n" +
-                    "  \"name\": \"John\",\n" +
-                    "  \"age\": 12345678901234567890,\n" +
-                    "  \"salary\": 12345.67890,\n" +
+                    "  \"name\": \"Arvind\",\n" +
+                    "  \"age\": 25,\n" +
+                    "  \"salary\": 12345.67,\n" +
                     "  \"isEmployed\": true,\n" +
-                    "  \"projects\": [\"Project A\", \"Project B\"],\n" +
+                    "  \"projects\": [\"Rate Limiter\", \"Query Seva\"],\n" +
                     "  \"address\": {\n" +
-                    "    \"city\": \"New York\",\n" +
+                    "    \"city\": \"Noida\",\n" +
                     "    \"zip\": 10001\n" +
                     "  }\n" +
                     "}";
